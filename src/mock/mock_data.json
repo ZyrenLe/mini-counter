@@ -1,15 +1,55 @@
 [
     {
         "name" : "Glühwein",
-        "price" : "5,50"
+        "price" : "100"
     },
     {
-        "name" : "Hot Dog",
-        "price" : "5,50"
+        "name" : "Glühwein mit Schuss",
+        "price" : "100"
     },
     {
         "name" : "Cider",
-        "price" : "5,50"
+        "price" : "100"
+    },
+    {
+        "name" : "Kaffee",
+        "price" : "100"
+    },
+    {
+        "name" : "Kakao",
+        "price" : "100"
+    },    
+    {
+        "name" : "Tee",
+        "price" : "100"
+    },
+    {
+        "name" : "Cola, Fanta, Sprite",
+        "price" : "100"
+    },    
+    {
+        "name" : "Wolters",
+        "price" : "100"
+    },
+    {
+        "name" : "Wolters AKF",
+        "price" : "100"
+    },
+    {
+        "name" : "Heineken",
+        "price" : "100"
+    },    
+    {
+        "name" : "Hot Dog",
+        "price" : "100"
+    },
+    {
+        "name" : "Banh Mi (klein)",
+        "price" : "100"
+    },    
+    {
+        "name" : "Banh Mi (groß)",
+        "price" : "100"
     }
 ]
     
