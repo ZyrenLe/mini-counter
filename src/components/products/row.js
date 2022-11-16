@@ -1,3 +1,5 @@
+import '../../css/row.css'
+
 function Product({name}) {
     return (
         <div className="product row name" key={"name"}>{name}</div>
@@ -11,11 +13,29 @@ function Price({price}) {
 }
 
 function Counter({count, decreaseCount, increaseCount}){
+
+    function getID(elmnt){
+        const parent = elmnt.parentElement.parentElement;
+        const id = parent.id;
+        return id;
+    }
+
+    function decrease(e){
+        decreaseCount( getID(e.target) );
+
+    }
+
+    function increase(e){
+        increaseCount( getID(e.target) );
+
+    }
+
+    // TODO call setState with args
     return (
         <div className="product row counter" key={"counter"}>
-            <button className="decrease" onClick={ decreaseCount } key={"decrease"}> - </button>
-            <div className="counter-number" key={"number"}>{count}</div> 
-            <button className="increase"onClick={ increaseCount } key={"increase"}> + </button>
+            <button className="decrease" onClick={ (e)=>{ decrease(e) } }> - </button>
+            <div className="counter-number">{count}</div> 
+            <button className="increase"onClick={ (e)=>{ increase(e) } }> + </button>
         </div>
     )
 }

@@ -8,6 +8,8 @@ export default function List({products, decreaseCount, increaseCount}){
     //<Row id={} name={} price={} count={} decreaseCount={} increaseCount={} />
     // Loop end
 
+
+
     const row = products.map( (item)=>{
         const id = item.id;
         const name = item.name;
@@ -20,6 +22,7 @@ export default function List({products, decreaseCount, increaseCount}){
         <div className="product list">
             {row}
         </div>
+        
     )
 
 }

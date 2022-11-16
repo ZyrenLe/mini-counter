@@ -1,0 +1,23 @@
+
+/* Product List */
+.product-row{
+    height: 1.5em;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 30% 20%;
+    gap: 0 1em;
+}
+
+.product.row.counter{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 0 1em;
+}
+
+
+
+/* Counter Buttons */
+.increase, .decrease{
+    width: 2em;
+    height: 2em;
+}
