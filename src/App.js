@@ -1,11 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
-import ProductList from './components/products/product_list';
-import OrderButtons from './components/order/buttons';
+import List from './components/products/list';
 import { useState } from 'react';
 
-      // <ProductList />
-      // <OrderButtons />
+
 function App() {
   const produkt_liste = [
     {
@@ -22,28 +20,29 @@ function App() {
     },
     {
       id : 3,
-      name : "Glühwein mit Schuss",
-      price : "7,00",
-      count : 1
+      name : "Fisch",
+      price : "5,00",
+      count : 0
     }
   ]
-  const [bestellung,setBestellung] = useState(produkt_liste);
+
+  const [products,setProducts] = useState(produkt_liste);
 
   function test() {
-    return console.log(bestellung);
+    return console.log(products);
   }
 
   function changeState() {
-    setBestellung(
-      bestellung.map( (item)=>{
+    setProducts(
+      products.map( (item)=>{
         if (item.count !== 0){
           const id = item.id;
           const count = item.count;
+          item.price = "44,44";
         }
         return item;
       })
     )
-    return console.log(bestellung);
   }
 
   return (
@@ -52,6 +51,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <button onClick={test}>test</button>
         <button onClick={changeState}>change</button>
+        <List products={products} decreaseCount={test} increaseCount={test} />
       </header>
     </div>
   );
