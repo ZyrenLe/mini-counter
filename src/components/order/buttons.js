@@ -1,46 +1,47 @@
 
 
 
-function CancelButton() {
+function CancelButton({resetCount}) {
+
+    // Cancel all and set count to 0
+
     return (
-        <button >
+        <button onClick={resetCount}>
             Abbrechen
         </button>    
     )   
 }
 
-function SubmitButton() {
+function SubmitButton({products, resetCount}) {
 
-    function getOrders() {
-            const orders = document.getElementsByClassName("product-row");
-            for(let row of orders){
-                let id = row.id;
-                let name = row.querySelectorAll('.name')[0].innerHTML;
-                let counter = row.querySelectorAll('.counter')[0].innerHTML;
-
-                console.log(id);
-                console.log(name);
-                console.log(counter);
-
-                row.querySelectorAll('.counter')[0].innerHTML = 0;
+    // Submit to Backend
+    // WHERE count != 0
+    function sendToBackend(){
+        products.map( (item)=>{
+            if (item.count !== 0){
+              console.log('id: '+item.id+', count: '+item.count);
             }
-            
-        return 
+        })
+    }
+
+    function send(){
+        sendToBackend();
+        resetCount();
     }
 
     return (
-        <button onClick={getOrders}>
+        <button onClick={send}>
             Bestätigen
         </button>    
     )   
 }
 
-export default function OrderButtons() {
+export default function OrderButtons({products, resetCount}) {
     return (
         <div className="order-buttons">
             
-            <CancelButton />
-            <SubmitButton />
+            <CancelButton resetCount={resetCount} />
+            <SubmitButton products={products} resetCount={resetCount} />
 
         </div>
     )

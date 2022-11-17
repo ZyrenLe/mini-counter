@@ -1,4 +1,5 @@
 import Row from "./row";
+import '../../css/list.css'
 
 export default function List({products, decreaseCount, increaseCount}){
     // List all product rows
@@ -7,8 +8,6 @@ export default function List({products, decreaseCount, increaseCount}){
     // Loop list
     //<Row id={} name={} price={} count={} decreaseCount={} increaseCount={} />
     // Loop end
-
-
 
     const row = products.map( (item)=>{
         const id = item.id;
@@ -19,9 +18,9 @@ export default function List({products, decreaseCount, increaseCount}){
     })
 
     return (
-        <div className="product list">
+        <section className="product list">
             {row}
-        </div>
+        </section>
         
     )
 

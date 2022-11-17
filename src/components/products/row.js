@@ -1,4 +1,3 @@
-import '../../css/row.css'
 
 function Product({name}) {
     return (

@@ -1,6 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import List from './components/products/list';
+import Orders from './components/order/orders';
 import { useState } from 'react';
 
 
@@ -52,7 +52,7 @@ function App() {
     {
       id : "2",
       name : "Cider",
-      price : "5,00",
+      price : "5,50",
       count : 3
     },
     {
@@ -63,10 +63,23 @@ function App() {
     }
   ]
 
+
+  // States
   const [products,setProducts] = useState(produkt_liste);
+  const [sum, setSum] = useState(()=>{
+    let totalSum = 0;
+    products.map((item)=>{
+      if( item.count !== 0 ){
+        totalSum = totalSum + parseFloat(item.price.replace(',', '.'))*item.count;
+      }
+    })
+    return totalSum
+  });
+
+  
 
   function test() {
-    return console.log(products);
+    console.log(sum);
   }
 
 
@@ -93,13 +106,41 @@ function App() {
     )
   }
 
+  function resetCount(){
+    setProducts(
+      products.map( (item)=>{  
+        item.count = 0;
+        return item;
+      })
+    )
+  }
+
+  // Handler: Sum
+  function updateSum(){
+    setSum(()=>{
+      let totalSum = 0;
+      products.map((item)=>{
+        if( item.count !== 0 ){
+          totalSum = totalSum + parseFloat(item.price.replace(',', '.'))*item.count;
+        }
+      })
+      return totalSum
+    })
+  }
+
+
+  function Headline(){
+    return <div className='headline'>Bestellung</div>
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <button onClick={test}>test</button>
+        <Headline />
         <List products={products} decreaseCount={decreaseCount} increaseCount={increaseCount} />
+        <Orders products={products} resetCount={resetCount} updateSum={updateSum} sum={sum} />
       </header>
+      <button onClick={test}>test</button>
     </div>
   );
 }

@@ -1,5 +1,16 @@
 
+
+.headline{
+    grid-column: 1;
+    grid-row: 1;
+}
+
 /* Product List */
+.product.list{
+    grid-column: 1;
+    grid-row: 2;
+}
+
 .product-row{
     height: 1.5em;
     width: 100%;
