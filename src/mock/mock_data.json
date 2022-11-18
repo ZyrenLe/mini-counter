@@ -1,15 +1,15 @@
 [
     {
         "name" : "Glühwein",
-        "price" : "100"
+        "price" : "3,50"
     },
     {
         "name" : "Glühwein mit Schuss",
-        "price" : "100"
+        "price" : "4,50"
     },
     {
         "name" : "Cider",
-        "price" : "100"
+        "price" : "3,50"
     },
     {
         "name" : "Kaffee",
@@ -17,15 +17,15 @@
     },
     {
         "name" : "Kakao",
-        "price" : "100"
+        "price" : "2,00"
     },    
     {
         "name" : "Tee",
-        "price" : "100"
+        "price" : "2,00"
     },
     {
         "name" : "Cola, Fanta, Sprite",
-        "price" : "100"
+        "price" : "2,00"
     },    
     {
         "name" : "Wolters",
@@ -33,23 +33,31 @@
     },
     {
         "name" : "Wolters AKF",
-        "price" : "2,70"
+        "price" : "2,00"
     },
     {
         "name" : "Heineken",
-        "price" : "2,70"
+        "price" : "2,00"
     },    
     {
         "name" : "Hot Dog",
-        "price" : "100"
+        "price" : "3,00"
     },
     {
         "name" : "Banh Mi (klein)",
-        "price" : "100"
+        "price" : "3,50"
     },    
     {
         "name" : "Banh Mi (groß)",
-        "price" : "100"
+        "price" : "7,00"
+    },    
+    {
+        "name" : "Suppe",
+        "price" : "4,00"
+    },    
+    {
+        "name" : "Hähnchen Spieß",
+        "price" : "2,00"
     }
 ]
     

@@ -5,11 +5,11 @@ function OrderItem({id, name, count, price}){
     const price_float = price.replace(',', '.');
     const total = parseFloat(price_float)*count;
     return (
-        <div className="orders item" id={id}>
-            <div className="orders name">{name}</div>
-            <div className="orders count">{count}</div>
-            <div className="orders multiplicator">x</div>
-            <div className="orders total">{total.toFixed(2)}</div>
+        <div className="orders item" id={id} key={id}>
+            <div className="orders name" key={"name"}>{name}</div>
+            <div className="orders count" key={"count"}>{count}</div>
+            <div className="orders multiplicator" key={"mult"}>x</div>
+            <div className="orders total" key={"total"}>{total.toFixed(2)}</div>
         </div>
     )
 }
@@ -31,8 +31,8 @@ export default function Orders({products, resetCount, updateSum, sum}){
 
     return (
         <section className="orders summary">
-            <div className="orders list">{order}</div>
-            <div className="orders sum">{sum.toFixed(2)}</div>
+            <div className="orders list" >{order}</div>
+            <div className="orders sum" >{sum.toFixed(2)}</div>
             <OrderButtons products={products} resetCount={resetCount} />
         </section>
     )

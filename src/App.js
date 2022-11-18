@@ -1,13 +1,14 @@
 import './App.css';
 import List from './components/products/list';
 import Orders from './components/order/orders';
-import useFetch from './components/hooks/useFetchGet';
 import { useState } from 'react';
+import { config } from './mock/config';
 
 function App() {
+/**
+  const [fetching, setFetching] = useState(true);
+  const produkt_liste = useFetch('http://localhost:8080/products', setFetching);
   
-  const produkt_liste = useFetch('http://localhost:8080/products');
-  console.log(produkt_liste);
   const blabla = [
     {
         id : "1",
@@ -29,9 +30,10 @@ function App() {
     }
   ]
 
-
+ */
   // States
-  const [products,setProducts] = useState(produkt_liste);
+  const temp = config;
+  const [products,setProducts] = useState(temp);
   const [sum, setSum] = useState(()=>{
     let totalSum = 0;
     products.map((item)=>{
@@ -45,7 +47,7 @@ function App() {
 
   
   function test() {
-    
+    console.log(products);
   }
 
 
@@ -102,9 +104,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Headline />
-        <List products={products} decreaseCount={decreaseCount} increaseCount={increaseCount} />
-        <Orders products={products} resetCount={resetCount} updateSum={updateSum} sum={sum} />
+      <Headline /> 
+      <List products={products} decreaseCount={decreaseCount} increaseCount={increaseCount} />
+      <Orders products={products} resetCount={resetCount} updateSum={updateSum} sum={sum} />
       </header>
       <button onClick={test}>test</button>
     </div>

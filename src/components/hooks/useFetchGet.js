@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 
-function useFetch(url){
+function useFetch(url, setFetching){
     // Get products from python backend
     const [products, setProducts] = useState([]);
     
@@ -13,12 +13,14 @@ function useFetch(url){
         };
         fetch(url,req_options)
             .then(response => response.json())
-            .then(data => setProducts(data))
+            .then(data => setProducts(data), setFetching(false))
             .catch(error => console.log(error))
     
-        },[url])
+        },[url,setFetching])
   
         return products;
 }
+
+
 
 export default useFetch;

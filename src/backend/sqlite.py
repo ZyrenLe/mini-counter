@@ -168,7 +168,7 @@ def products():
                 "price" : "5,50"
             }
         ]
-        products = get_JSON
+        products = get_JSON()
         db_fill_products(products)
         return "Products inserted successfully!"
 
