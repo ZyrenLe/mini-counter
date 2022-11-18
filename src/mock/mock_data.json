@@ -13,7 +13,7 @@
     },
     {
         "name" : "Kaffee",
-        "price" : "100"
+        "price" : "2,00"
     },
     {
         "name" : "Kakao",
@@ -29,15 +29,15 @@
     },    
     {
         "name" : "Wolters",
-        "price" : "100"
+        "price" : "2,70"
     },
     {
         "name" : "Wolters AKF",
-        "price" : "100"
+        "price" : "2,70"
     },
     {
         "name" : "Heineken",
-        "price" : "100"
+        "price" : "2,70"
     },    
     {
         "name" : "Hot Dog",

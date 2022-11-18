@@ -1,48 +1,14 @@
 import './App.css';
 import List from './components/products/list';
 import Orders from './components/order/orders';
+import useFetch from './components/hooks/useFetchGet';
 import { useState } from 'react';
 
-
-/**
-import { useEffect, useState } from "react";
-
-
-function FetchProducts(){
-    // Get products from python backend
-    const [products, setProducts] = useState([]);
-    
-    useEffect(()=>{
-        fetch('http://localhost:8080/products',{
-            crossDomain:true,
-            'methods':'GET',
-            headers : {
-            'Content-Type':'application/json'
-          }
-        })
-        .then(response => response.json())
-        .then(response => setProducts(response))
-        .catch(error => console.log(error))
-    
-        },[])
-  
-        console.log(products)
-
-        const row = products.map( (item) =>
-            <ProductRow id={item.id} name={item.name} price={item.price}/>
-    );
-      
-        return(
-            <div className="product-list">
-                {row}
-            </div>
-            
-        )
-}
- */
-
 function App() {
-  const produkt_liste = [
+  
+  const produkt_liste = useFetch('http://localhost:8080/products');
+  console.log(produkt_liste);
+  const blabla = [
     {
         id : "1",
         name : "Glühwein",
@@ -76,10 +42,10 @@ function App() {
     return totalSum
   });
 
-  
 
+  
   function test() {
-    console.log(sum);
+    
   }
 
 

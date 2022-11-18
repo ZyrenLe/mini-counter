@@ -123,6 +123,12 @@ def db_fill_orders(orders):
         print(order)
         db_commit(insert_orders, order)
 
+# Read JSON file
+def get_JSON():
+    json_path = '../mock/mock_data.json'
+    with open(json_path) as file:
+        data = json.load(file)
+    return data
 
 ##########################################################
 # Routes
@@ -146,6 +152,8 @@ def products():
     if request.method == 'GET':
         sql = "SELECT * FROM products"
         result = db_get_dict(sql)
+        for obj in result:
+            obj['count'] = 0
         #return json.dumps(result)
         return result
     
@@ -160,7 +168,8 @@ def products():
                 "price" : "5,50"
             }
         ]
-        db_fill_products(mock_products)
+        products = get_JSON
+        db_fill_products(products)
         return "Products inserted successfully!"
 
 # Orders
