@@ -1,5 +1,17 @@
 [
     {
+        "name" : "Wolters",
+        "price" : "2,70"
+    },
+    {
+        "name" : "Wolters AKF",
+        "price" : "2,00"
+    },
+    {
+        "name" : "Heineken",
+        "price" : "2,00"
+    },    
+    {
         "name" : "Glühwein",
         "price" : "3,50"
     },
@@ -29,18 +41,6 @@
     },
     {
         "name" : "Cola, Fanta, Sprite",
-        "price" : "2,00"
-    },    
-    {
-        "name" : "Wolters",
-        "price" : "2,70"
-    },
-    {
-        "name" : "Wolters AKF",
-        "price" : "2,00"
-    },
-    {
-        "name" : "Heineken",
         "price" : "2,00"
     },    
     {
