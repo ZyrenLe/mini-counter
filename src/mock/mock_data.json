@@ -12,6 +12,10 @@
         "price" : "3,50"
     },
     {
+        "name" : "Kinderpunsch",
+        "price" : "2,50"
+    },
+    {
         "name" : "Kaffee",
         "price" : "2,00"
     },

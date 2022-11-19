@@ -139,6 +139,18 @@ def get_JSON():
 def hello_world():
     return "<p> Hello World!</p>"
 
+# Test
+@app.route("/test", methods=['GET','POST'])
+def test():
+    if request.method == 'GET':
+        return "GET-Test erfolgreich"
+
+    if request.method == 'POST':
+        body = request.json
+        print(body)
+        return "POST-Test erfolgreich"
+
+
 # Init
 @app.route("/init", methods=['GET'])
 def init_db():

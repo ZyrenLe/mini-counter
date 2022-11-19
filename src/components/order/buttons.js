@@ -1,6 +1,4 @@
 
-
-
 function CancelButton({resetCount}) {
 
     // Cancel all and set count to 0
@@ -11,7 +9,7 @@ function CancelButton({resetCount}) {
         </button>    
     )   
 }
-
+/***/
 function SubmitButton({products, resetCount}) {
 
     // Submit to Backend
@@ -19,9 +17,24 @@ function SubmitButton({products, resetCount}) {
     function sendToBackend(){
         products.map( (item)=>{
             if (item.count !== 0){
-              console.log('id: '+item.id+', count: '+item.count);
+                const data = {id:parseInt(item.id), count:item.count};
+                post(data);
             }
         })
+    }
+
+    // Send Post request
+    async function post(data){
+        // Post products to python backend        
+        const req_options = {
+            method : 'POST',
+            crossDomain : true,
+            headers : { 'Content-Type':'application/json' },
+            body: JSON.stringify(data)
+        };
+        fetch('http://localhost:8080/test',req_options)
+            .catch(error => console.log(error))
+        return 'done';
     }
 
     function send(){
@@ -35,8 +48,9 @@ function SubmitButton({products, resetCount}) {
         </button>    
     )   
 }
-
+ 
 export default function OrderButtons({products, resetCount}) {
+
     return (
         <div className="order-buttons">
             
