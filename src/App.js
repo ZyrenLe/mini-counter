@@ -1,6 +1,7 @@
 import './App.css';
 import List from './components/products/list';
 import Orders from './components/order/orders';
+import Stats from './components/settings/stats';
 import { useState } from 'react';
 import { config } from './mock/config';
 
@@ -78,13 +79,17 @@ function App() {
   function Headline(){
     return <div className='headline'>Bestellung</div>
   }
+  function Headline2(){
+    return <div className='headline'>Übersicht</div>
+  }
 
   return (
     <div className="App">
       <header className="App-header">
-      {!showStats && <Headline /> }
+      {!showStats ? <Headline /> : <Headline2 />}
       {!showStats && <List products={products} decreaseCount={decreaseCount} increaseCount={increaseCount} />}
       {!showStats && <Orders products={products} resetCount={resetCount} updateSum={updateSum} sum={sum} />}
+      {showStats && <Stats /> }
       </header>
       <button onClick={test}>here</button>
     </div>

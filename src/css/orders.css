@@ -44,3 +44,8 @@
     grid-template-columns: 48% 48%;
     gap: 4%;
 }
+
+.order-buttons button{
+    height: 100%;
+    width: 100%;
+}

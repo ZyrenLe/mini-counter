@@ -20,8 +20,12 @@
         "price" : "4,50"
     },
     {
-        "name" : "Cider",
+        "name" : "Cider Tasse",
         "price" : "3,50"
+    },
+    {
+        "name" : "Cider Fl.",
+        "price" : "5,00"
     },
     {
         "name" : "Kinderpunsch",

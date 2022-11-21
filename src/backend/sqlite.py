@@ -25,12 +25,12 @@ def get_connection():
     return connection
 
 # DB Get
-def db_get(sql):
+def db_get(sql, *args):
     con = get_connection()
     with con:
         cursor = con.cursor()
         try:
-            cursor.execute(sql)
+            cursor.execute(sql, *args)
             return cursor.fetchall()
         except Error as e:
             print(f"Error executing db_get(): {e}")
@@ -38,13 +38,13 @@ def db_get(sql):
     cursor.close()
     con.close()
 
-def db_get_dict(sql):
+def db_get_dict(sql, *args):
     con = get_connection()
     with con:
         con.row_factory = sqlite3.Row
         cursor = con.cursor()
         try:
-            cursor.execute(sql)
+            cursor.execute(sql, *args)
             result = cursor.fetchall()
             result_dict = [{key: value[key] for key in value.keys()} for value in result]
             print(result_dict)
@@ -131,13 +131,23 @@ def get_JSON_File():
 
 # Read DB Orders
 
-def db_get_orders():
+def db_get_orders(date):
     get_orders = """
         SELECT
-            products.name, orders.sold, orders.date, orders.time
+            products.name, sum(orders.sold) AS sold, orders.date
         FROM
             orders LEFT JOIN products ON orders.product_id = products.id
+        WHERE
+            products.id = :id AND orders.date = :date
     """
+    result = []
+    for i in range(1,18):
+        print(i)
+        r = db_get_dict(get_orders, {"id":i, "date":date})
+        if r[0]['sold']:
+            print(type(r[0]))
+            result = result + r
+    return result
 
 ##########################################################
 # Routes
@@ -152,7 +162,7 @@ def hello_world():
 @app.route("/test", methods=['GET','POST'])
 def test():
     if request.method == 'GET':
-        return "GET-Test erfolgreich"
+        return {"Test":"GET-Test erfolgreich"}
 
     if request.method == 'POST':
         body = request.json
@@ -200,8 +210,9 @@ def products():
 def orders():
     # Get all Orders
     if request.method == 'GET':
-        sql = "SELECT * FROM orders"
-        result = db_get(sql)
+        date = request.args.get('date')
+        result = db_get_orders(date)
+        print(result)
         return result
     
     # Insert Orders

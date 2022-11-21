@@ -1,0 +1,23 @@
+.stats.view{
+    grid-column: 1 / span 2;
+    grid-row: 2;
+    margin: 3rem;
+    border-radius: 1.5rem;
+    background-color: floralwhite;
+    color: #2e374b;
+}
+
+.stats.list{
+    margin: 2rem 3rem;
+    overflow-y: auto;
+}
+
+.stats.row:nth-child(2){
+    background-color: rgb(248, 235, 215);
+}
+
+.stats.row{
+    display: grid;
+    grid-template-columns: 50% 30% 20%;
+    grid-template-rows: auto;
+}
