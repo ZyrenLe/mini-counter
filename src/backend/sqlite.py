@@ -119,16 +119,25 @@ def db_fill_orders(orders):
             ( :product_id, :sold, DATE('now'), TIME('now', '+1 hour') )
     """
     
-    for order in orders:
-        print(order)
-        db_commit(insert_orders, order)
+    print(orders)
+    db_commit(insert_orders, orders)
 
 # Read JSON file
-def get_JSON():
+def get_JSON_File():
     json_path = '../mock/mock_data.json'
     with open(json_path) as file:
         data = json.load(file)
     return data
+
+# Read DB Orders
+
+def db_get_orders():
+    get_orders = """
+        SELECT
+            products.name, orders.sold, orders.date, orders.time
+        FROM
+            orders LEFT JOIN products ON orders.product_id = products.id
+    """
 
 ##########################################################
 # Routes
@@ -161,6 +170,7 @@ def init_db():
 # Products
 @app.route("/products", methods=['GET', 'POST'])
 def products():
+    # Get Products
     if request.method == 'GET':
         sql = "SELECT * FROM products"
         result = db_get_dict(sql)
@@ -169,6 +179,7 @@ def products():
         #return json.dumps(result)
         return result
     
+    # Insert Products
     if request.method == 'POST':
         mock_products = [
             {
@@ -180,30 +191,24 @@ def products():
                 "price" : "5,50"
             }
         ]
-        products = get_JSON()
+        products = get_JSON_File()
         db_fill_products(products)
         return "Products inserted successfully!"
 
 # Orders
 @app.route("/orders", methods=['GET', 'POST'])
 def orders():
+    # Get all Orders
     if request.method == 'GET':
         sql = "SELECT * FROM orders"
         result = db_get(sql)
         return result
     
+    # Insert Orders
     if request.method == 'POST':
-        mock_order= [
-            {
-                "product_id" : 1,
-                "sold" : 3
-            },
-            {
-                "product_id" : 2,
-                "sold" : 5
-            }
-        ]
-        db_fill_orders(mock_order)
+        # mock_order= { "product_id" : 1, "sold" : 3 }
+        body = request.json
+        db_fill_orders(body)
         return "Orders inserted successfully!"
     
 if __name__ == "__main__":

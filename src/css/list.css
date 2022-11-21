@@ -1,28 +1,36 @@
 
-
 .headline{
     grid-column: 1;
     grid-row: 1;
+    display: flex;
+    align-items: center;
+    margin: 2rem 2rem 2rem 3rem;
+    font-size: calc(18px + 2vmin);
 }
 
 /* Product List */
 .product.list{
     grid-column: 1;
     grid-row: 2;
+    margin: 2rem 2rem 2rem 3rem;
+    display: grid;
+    gap: 3.5vh 0;
+    overflow-y: auto;
 }
 
 .product-row{
-    height: 1.5em;
     width: 100%;
     display: grid;
-    grid-template-columns: 50% 30% 20%;
-    gap: 0 1em;
+    grid-template-columns: 50% 29% 11%;
+    gap: 0 5%;
 }
 
 .product.row.counter{
     display: grid;
     grid-template-columns: repeat(3, auto);
     gap: 0 1em;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -31,4 +39,12 @@
 .increase, .decrease{
     width: 2em;
     height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.counter-number{
+    display: flex;
+    justify-content: center;
 }

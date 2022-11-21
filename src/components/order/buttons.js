@@ -17,7 +17,8 @@ function SubmitButton({products, resetCount}) {
     function sendToBackend(){
         products.map( (item)=>{
             if (item.count !== 0){
-                const data = {id:parseInt(item.id), count:item.count};
+                const data = {product_id:parseInt(item.id), sold:item.count};
+                console.log(data);
                 post(data);
             }
         })
@@ -32,7 +33,7 @@ function SubmitButton({products, resetCount}) {
             headers : { 'Content-Type':'application/json' },
             body: JSON.stringify(data)
         };
-        fetch('http://localhost:8080/test',req_options)
+        fetch('http://localhost:8080/orders',req_options)
             .catch(error => console.log(error))
         return 'done';
     }

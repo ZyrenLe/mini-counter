@@ -5,32 +5,7 @@ import { useState } from 'react';
 import { config } from './mock/config';
 
 function App() {
-/**
-  const [fetching, setFetching] = useState(true);
-  const produkt_liste = useFetch('http://localhost:8080/products', setFetching);
-  
-  const blabla = [
-    {
-        id : "1",
-        name : "Glühwein",
-        price : "6,00",
-        count : 0
-    },
-    {
-      id : "2",
-      name : "Cider",
-      price : "5,50",
-      count : 3
-    },
-    {
-      id : "3",
-      name : "Fisch",
-      price : "5,00",
-      count : 0
-    }
-  ]
 
- */
   // States
   const temp = config;
   const [products,setProducts] = useState(temp);
@@ -44,10 +19,13 @@ function App() {
     return totalSum
   });
 
+  const [showStats, setShowStats] = useState(false);
+
 
   
   function test() {
-    console.log(products);
+    setShowStats(oldBool => !oldBool);
+    console.log(showStats);
   }
 
 
@@ -104,11 +82,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <Headline /> 
-      <List products={products} decreaseCount={decreaseCount} increaseCount={increaseCount} />
-      <Orders products={products} resetCount={resetCount} updateSum={updateSum} sum={sum} />
+      {!showStats && <Headline /> }
+      {!showStats && <List products={products} decreaseCount={decreaseCount} increaseCount={increaseCount} />}
+      {!showStats && <Orders products={products} resetCount={resetCount} updateSum={updateSum} sum={sum} />}
       </header>
-      <button onClick={test}>test</button>
+      <button onClick={test}>here</button>
     </div>
   );
 }

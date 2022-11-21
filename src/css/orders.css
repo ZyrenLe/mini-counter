@@ -4,12 +4,43 @@
     grid-column: 2;
     background-color: floralwhite;
     color: #2e374b;
-    height: 80%;
-    width: 90%;
+    margin: 2rem 3rem 2rem 2rem;
+    border-radius: 0.5rem;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 80% 10% 10%;
 }
 
+.orders.list{
+    margin: 1rem;
+    overflow-y: auto;
+}
 .orders.item{
     display: grid;
-    grid-template-columns: 60% 20% 10% 10%;
+    grid-template-columns: 60% 15% 10% 15%;
     grid-template-rows: auto;
+    overflow-y: auto;
+}
+
+.orders.sum{
+    display: grid;
+    grid-template-columns: 60% 15% 10% 15%;
+    margin: 1rem;
+    border-top: 1px solid #2e374b;
+}
+
+.summe {
+    grid-column: 4;
+}
+
+.gesamt{
+    grid-column: 1;
+}
+
+.order-buttons{
+    margin: 1rem;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 48% 48%;
+    gap: 4%;
 }

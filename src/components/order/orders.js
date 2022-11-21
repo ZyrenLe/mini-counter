@@ -32,8 +32,8 @@ export default function Orders({products, resetCount, updateSum, sum}){
     return (
         <section className="orders summary">
             <div className="orders list" >{order}</div>
-            <div className="orders sum" >{sum.toFixed(2)}</div>
-            <OrderButtons products={products} resetCount={resetCount} />
+            {sum != 0 && <div className="orders sum" ><div className="gesamt">Gesamt</div><div className="summe">{sum.toFixed(2)}</div></div>}
+            {sum != 0 && <OrderButtons products={products} resetCount={resetCount} />}
         </section>
     )
 }
