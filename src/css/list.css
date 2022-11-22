@@ -9,7 +9,7 @@
 }
 
 /* Product List */
-.product.list{
+.product-list{
     grid-column: 1;
     grid-row: 2;
     margin: 2rem 2rem 2rem 3rem;
@@ -25,7 +25,7 @@
     gap: 0 5%;
 }
 
-.product.row.counter{
+.product-row-counter{
     display: grid;
     grid-template-columns: repeat(3, auto);
     gap: 0 1em;

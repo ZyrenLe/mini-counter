@@ -18,7 +18,7 @@ export default function List({products, decreaseCount, increaseCount}){
     })
 
     return (
-        <section className="product list">
+        <section className="product-list">
             {row}
         </section>
         

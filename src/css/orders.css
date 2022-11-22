@@ -1,5 +1,5 @@
 
-.orders.summary{
+.orders-summary{
     grid-row: 2;
     grid-column: 2;
     background-color: floralwhite;
@@ -11,18 +11,18 @@
     grid-template-rows: 80% 10% 10%;
 }
 
-.orders.list{
+.orders-list{
     margin: 1rem;
     overflow-y: auto;
 }
-.orders.item{
+.orders-item{
     display: grid;
     grid-template-columns: 60% 15% 10% 15%;
     grid-template-rows: auto;
     overflow-y: auto;
 }
 
-.orders.sum{
+.orders-sum{
     display: grid;
     grid-template-columns: 60% 15% 10% 15%;
     margin: 1rem;

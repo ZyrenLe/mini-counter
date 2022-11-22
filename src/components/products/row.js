@@ -1,13 +1,13 @@
 
 function Product({name}) {
     return (
-        <div className="product row name" key={"name"}>{name}</div>
+        <div className="product-row-name" key={"name"}>{name}</div>
     )
 }
 
 function Price({price}) {
     return (
-        <div className="product row price" key={"price"}>{price}</div>
+        <div className="product-row-price" key={"price"}>{price}</div>
     )
 }
 
@@ -31,7 +31,7 @@ function Counter({count, decreaseCount, increaseCount}){
 
     // TODO call setState with args
     return (
-        <div className="product row counter" key={"counter"}>
+        <div className="product-row-counter" key={"counter"}>
             <button className="decrease" onClick={ (e)=>{ decrease(e) } }> - </button>
             <div className="counter-number">{count}</div> 
             <button className="increase"onClick={ (e)=>{ increase(e) } }> + </button>
