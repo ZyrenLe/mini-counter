@@ -18,6 +18,17 @@
     overflow-y: auto;
 }
 
+@media (orientation:portrait) {
+    .product-list{
+        grid-column: 1 / span 2;
+        grid-row: 2;
+        margin: 2rem;
+        display: grid;
+        gap: 3.5vh 0;
+        overflow-y: auto;
+    }
+}
+
 .product-row{
     width: 100%;
     display: grid;

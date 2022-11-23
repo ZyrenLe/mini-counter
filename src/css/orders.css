@@ -49,3 +49,18 @@
     height: 100%;
     width: 100%;
 }
+
+
+@media (orientation:portrait) {
+    .orders-summary{
+        grid-row: 3;
+        grid-column: 1 /span 2;
+        background-color: floralwhite;
+        color: #2e374b;
+        margin: 2rem 3rem 2rem 2rem;
+        border-radius: 0.5rem;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 80% 10% 10%;
+    }
+}

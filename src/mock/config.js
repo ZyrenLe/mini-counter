@@ -34,7 +34,7 @@ export const config = [{
 	"count": 0,
 	"id": "7",
 	"name": "Cider Fl.",
-	"price": "3,50"
+	"price": "5,00"
 },{
 	"count": 0,
 	"id": "8",
